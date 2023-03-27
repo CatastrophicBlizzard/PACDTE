@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/explooshin.ogg-54d03454b41016ebc2f8eee64c003c0b.oggstr"
+
+[deps]
+
+source_file="res://Audios/explooshin.ogg"
+dest_files=[ "res://.import/explooshin.ogg-54d03454b41016ebc2f8eee64c003c0b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

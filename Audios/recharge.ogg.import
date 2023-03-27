@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/recharge.ogg-1828748f2cde5a90a7c995c9ca202055.oggstr"
+
+[deps]
+
+source_file="res://Audios/recharge.ogg"
+dest_files=[ "res://.import/recharge.ogg-1828748f2cde5a90a7c995c9ca202055.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

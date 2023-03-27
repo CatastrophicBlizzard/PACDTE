@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Why a monkey head..ogg-c2435145cdf94f558b6cadb8f66c1972.oggstr"
+
+[deps]
+
+source_file="res://Audios/Why a monkey head..ogg"
+dest_files=[ "res://.import/Why a monkey head..ogg-c2435145cdf94f558b6cadb8f66c1972.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

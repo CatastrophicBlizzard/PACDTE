@@ -1,0 +1,146 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Scenes/Bitcrusher.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/1bitcrushe11.png" type="Texture" id=3]
+[ext_resource path="res://Audios/dash.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Sprites/1bitcrushe10.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/1bitcrusher1.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/1bitcrusher2.png" type="Texture" id=7]
+[ext_resource path="res://addons/randomAudioStreamPlayer/random_audio_stream_player.gd" type="Script" id=8]
+[ext_resource path="res://Sprites/1bitcrusher4.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/1bitcrusher5.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Bitcraush.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/1bitcrushe7.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/1bitcrusher3.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/1bitcrushe8.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/1bitcrushe6.png" type="Texture" id=15]
+[ext_resource path="res://Audios/recharge.ogg" type="AudioStream" id=16]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Punch",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "REcharge",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Apear"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 200, 100 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Walk"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 5, 5 ), Vector2( 0, 0 ), Vector2( -5, 5 ) ]
+}
+
+[node name="Bitcrusher" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="Spatial" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="Sprite" type="Sprite" parent="Spatial"]
+position = Vector2( -1.90884e-05, -0.999996 )
+scale = Vector2( 1.06667, 1 )
+texture = ExtResource( 11 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -199.0
+margin_top = -173.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Control"]
+position = Vector2( 201, 174 )
+rotation = 3.14159
+scale = Vector2( 1.2, 1.2 )
+frames = SubResource( 1 )
+animation = "REcharge"
+centered = false
+flip_h = true
+flip_v = true
+
+[node name="RayGun" type="Spatial" parent="."]
+
+[node name="RayCast" type="RayCast" parent="RayGun"]
+enabled = true
+cast_to = Vector3( 0, 0, -8 )
+
+[node name="RandomAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+script = ExtResource( 8 )
+samples = [ ExtResource( 4 ) ]
+random_volume_range = 3.333
+random_pitch_range = 0.126
+
+[node name="RandomAudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+script = ExtResource( 8 )
+samples = [ ExtResource( 16 ) ]
+random_volume_range = 3.333
+random_pitch_range = 0.126
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Apear = SubResource( 2 )
+anims/Idle = SubResource( 3 )
+anims/RESET = SubResource( 4 )
+anims/Walk = SubResource( 5 )

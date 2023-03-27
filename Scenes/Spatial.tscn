@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Resources/PLayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Dremeater.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Maps/untitled.tscn" type="PackedScene" id=3]
+
+[sub_resource type="ProceduralSky" id=2]
+sky_top_color = Color( 0.976471, 0.631373, 0.972549, 1 )
+sky_horizon_color = Color( 1, 1, 1, 1 )
+ground_bottom_color = Color( 0.227451, 0, 0, 1 )
+ground_horizon_color = Color( 0.0196078, 0, 0.258824, 1 )
+sun_color = Color( 0.772549, 0, 1, 1 )
+texture_size = 0
+
+[sub_resource type="Environment" id=3]
+background_mode = 2
+background_sky = SubResource( 2 )
+background_color = Color( 0.996078, 0.054902, 0.85098, 1 )
+background_energy = 7.19
+ambient_light_color = Color( 0.929412, 0, 1, 1 )
+ambient_light_energy = 0.9
+fog_color = Color( 0.580392, 0.0627451, 0.972549, 1 )
+fog_sun_color = Color( 0.517647, 0.392157, 0.145098, 1 )
+auto_exposure_enabled = true
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0489596, 2.02945 )
+
+[node name="untitled" parent="." instance=ExtResource( 3 )]
+
+[node name="untitled2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )
+
+[node name="Dremeater" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.558558, 0 )
+
+[node name="Dremeater5" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09775, 0.978188 )
+
+[node name="Dremeater2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.98771, 0.691144, 0 )
+
+[node name="Dremeater3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.27408, 0.646687, 0 )
+
+[node name="Dremeater4" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.548931, -2.20385 )

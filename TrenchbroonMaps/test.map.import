@@ -1,0 +1,13 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+path="res://.import/test.map-fc456136783d515f14807caec366b64d.tres"
+
+[deps]
+
+source_file="res://TrenchbroonMaps/test.map"
+dest_files=[ "res://.import/test.map-fc456136783d515f14807caec366b64d.tres" ]
+
+[params]
+
